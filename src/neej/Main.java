@@ -6,5 +6,6 @@ public class Main
 	{
 		System.out.println("Hello from main!");
 		Cpu.helloWorld();
+		Bus.helloWorld();
 	}
 }

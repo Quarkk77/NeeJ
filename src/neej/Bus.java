@@ -2,8 +2,15 @@ package neej;
 
 public class Bus
 {
-	public static void helloWorld()
+	private Memory memory;
+
+	public Bus(Memory memory)
 	{
-		System.out.println("Hello from NES bus!");
+		this.memory = memory;
+	}
+
+	public String toString()
+	{
+		return "Hello from NES bus!";
 	}
 }

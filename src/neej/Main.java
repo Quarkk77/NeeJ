@@ -6,9 +6,11 @@ public class Main
 	{
 		System.out.println("Hello from main!");
 		
-		Cpu cpu = new Cpu();
-
+		Memory memory = new Memory();
+		Bus bus = new Bus(memory);
+		Cpu cpu = new Cpu(bus);
+				
 		System.out.println(cpu);
-		Bus.helloWorld();
+		System.out.println(bus);
 	}
 }

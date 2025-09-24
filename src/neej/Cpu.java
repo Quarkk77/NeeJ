@@ -12,10 +12,16 @@ public class Cpu
 		this.bus = bus;
 	}
 
-	public String toString() {
+	public String toString() 
+	{
 		String pCounterFormatted = Integer.toHexString(programCounter).toUpperCase();
 		String accumulatorFormatted = Integer.toHexString(accumulator).toUpperCase();
 
 		return "Program Counter: $" + pCounterFormatted + " Accumulator: $" + accumulatorFormatted;
+	}
+
+	public void executeCycle()
+	{
+		;
 	}
 }

@@ -15,9 +15,11 @@ public class Main
 		System.out.println(cpu);
 		System.out.println(bus);
 
+		// Set CPU speeds to ~1.79MHz to match NES clock speed
 		long cycleTime = 1_000_000_000L / 1_789_773L; // nanoseconds per cycle
 		long nextCycle = System.nanoTime();
 
+		// Wait until next emu cycle - time is negligible on modern CPUs
 		while (running) {
 			cpu.executeCycle();
     

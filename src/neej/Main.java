@@ -20,13 +20,23 @@ public class Main
 		long nextCycle = System.nanoTime();
 
 		// Wait until next emu cycle - time is negligible on modern CPUs
-		while (running) {
+		while (true) {
 			cpu.executeCycle();
     
 			nextCycle += cycleTime;
 			long sleepTime = nextCycle - System.nanoTime();
-			if (sleepTime > 0) {
-				Thread.sleep(sleepTime / 1_000_000, (int)(sleepTime % 1_000_000));
+			if (sleepTime > 0) 
+			{
+				try 
+				{
+					Thread.sleep(sleepTime / 1_000_000, (int)(sleepTime % 1_000_000));
+				} 
+				
+				catch (InterruptedException e) 
+				{
+					Thread.currentThread().interrupt(); // Restore interrupt status
+					break; // Exit loop if interrupted
+				}
 			}
 		}
 	}

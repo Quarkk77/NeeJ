@@ -22,6 +22,6 @@ public class Cpu
 
 	public void executeCycle()
 	{
-		;
+		System.out.println("ts adrian");
 	}
 }

@@ -21,7 +21,7 @@ public class Main
 
 		// Wait until next emu cycle - time is negligible on modern CPUs
 		while (true) {
-			cpu.executeCycle();
+			cpu.tick();
     
 			nextCycle += cycleTime;
 			long sleepTime = nextCycle - System.nanoTime();

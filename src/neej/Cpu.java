@@ -24,8 +24,8 @@ public class Cpu
 		return "Program Counter: $" + pCounterFormatted + " Accumulator: $" + accumulatorFormatted;
 	}
 
-	public void executeCycle()
+	public void tick()
 	{
-		System.out.println("ts adrian");
+		;
 	}
 }

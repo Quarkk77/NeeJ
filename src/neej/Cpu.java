@@ -24,6 +24,11 @@ public class Cpu
 		return "Program Counter: $" + pCounterFormatted + " Accumulator: $" + accumulatorFormatted;
 	}
 
+	public void reset()
+	{
+		programCounter = 0xFFFC;
+	}
+
 	public void tick()
 	{
 		;

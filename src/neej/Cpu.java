@@ -3,7 +3,11 @@ package neej;
 public class Cpu
 {
 	private int programCounter = 0xFFFC;
-	private int accumulator = 0x0000;
+	private int stackPointer = 0x00;
+	private int statusRegister = 0x00;
+	private int accumulator = 0x00;
+	private int x = 0x00;
+	private int y = 0x00;
 	
 	private Bus bus;
 

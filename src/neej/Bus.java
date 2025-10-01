@@ -17,8 +17,14 @@ public class Bus
 		{
 			return memory.read(index);
 		}
-
-		return 0x00;
+		else if (index < 0x2000)
+		{
+			return memory.read(index & 0x07FF);
+		}
+		else
+		{
+			return 0x00;
+		}
 	}
 
 	public String toString()

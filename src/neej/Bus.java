@@ -3,10 +3,12 @@ package neej;
 public class Bus
 {
 	private Memory memory;
+	private int[] cartridge;
 
-	public Bus(Memory memory)
+	public Bus(Memory memory, int[] cartridge)
 	{
 		this.memory = memory;
+		this.cartridge = cartridge;
 	}
 
 	public int read(int index)

@@ -1,5 +1,7 @@
 package neej;
 
+import java.nio.file.*;
+
 public class Main
 {
 	public static void main(String[] args) throws Exception
@@ -12,9 +14,14 @@ public class Main
 
 		System.out.println("Hello from main!");
 		
+		String path = args[0];
+        	int[] romBytes= Files.readAllBytes(Paths.get(path));
+		
+		Cartridge romData = new Cartridge(romDataInt);
+
 		// Create system components
 		Memory memory = new Memory();
-		Bus bus = new Bus(memory);
+		Bus bus = new Bus(memory, romData);
 		Cpu cpu = new Cpu(bus);
 		
 		// Show system components are ready

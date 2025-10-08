@@ -15,13 +15,15 @@ public class Main
 		System.out.println("Hello from main!");
 		
 		String path = args[0];
-        	int[] romBytes= Files.readAllBytes(Paths.get(path));
+        	byte[] romBytes= Files.readAllBytes(Paths.get(path));
 		
+		int[] romDataInt = NeeJUtils.byteArrayToUIntArray(romBytes);
+
 		Cartridge romData = new Cartridge(romDataInt);
 
 		// Create system components
 		Memory memory = new Memory();
-		Bus bus = new Bus(memory, romData);
+		Bus bus = new Bus(memory, romDataInt);
 		Cpu cpu = new Cpu(bus);
 		
 		// Show system components are ready

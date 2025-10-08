@@ -1,6 +1,6 @@
 package neej;
 
-public class ConvertArrayByteToInt
+public class NeeJUtils
 {
 	public static int[] byteArrayToUIntArray(byte[] byteArray)
 	{

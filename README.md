@@ -1,3 +1,3 @@
 # NeeJ, an NES emulator written in Java
 
-todo: lots (barebones structure, basic functions, etc)
+todo: lots (finish NES structure, implement 6502 CLU, finish cartridge logic, etc)

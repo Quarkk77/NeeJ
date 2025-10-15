@@ -4,6 +4,28 @@ import java.nio.file.*;
 
 public class Main
 {
+	public static void sleep()
+	{
+		long cycleTime = 1_000_000_000L / 1_789_773L; // nanoseconds per cycle
+		long nextCycle = System.nanoTime();
+
+		nextCycle += cycleTime;
+		long sleepTime = nextCycle - System.nanoTime();
+		if (sleepTime > 0) 
+		{
+			try 
+			{
+				Thread.sleep(sleepTime / 1_000_000, (int)(sleepTime % 1_000_000));
+			} 
+			
+			catch (InterruptedException e) 
+			{
+				Thread.currentThread().interrupt(); // restore interrupt status
+				break; // exit loop if interrupted
+			}
+		}
+	}
+
 	public static void main(String[] args) throws Exception
 	{
 		if (args.length == 0)
@@ -37,22 +59,8 @@ public class Main
 		// Wait until next emu cycle - time is negligible on modern CPUs
 		while (true) {
 			cpu.tick();
-    
-			nextCycle += cycleTime;
-			long sleepTime = nextCycle - System.nanoTime();
-			if (sleepTime > 0) 
-			{
-				try 
-				{
-					Thread.sleep(sleepTime / 1_000_000, (int)(sleepTime % 1_000_000));
-				} 
-				
-				catch (InterruptedException e) 
-				{
-					Thread.currentThread().interrupt(); // Restore interrupt status
-					break; // Exit loop if interrupted
-				}
-			}
+			
+			sleep();
 		}
 	}
 }
